@@ -8,7 +8,7 @@ namespace BlogNotas_Cliente.model.api
 {
     public class RespuestaGenerica
     {
-        public bool Estado { get; set; }
-        public string Mensaje { get; set; }
+        public bool error { get; set; }
+        public string mensaje { get; set; }
     }
 }

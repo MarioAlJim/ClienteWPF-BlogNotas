@@ -31,7 +31,7 @@ namespace BlogNotas_Cliente.model.api
                     { "nombre", usuario.nombres },
                     { "apellidos", usuario.apellidos },
                     { "celular", usuario.celular },
-                    { "contraseña", usuario.contrasena }
+                    { "contrasena", usuario.contrasena }
                 };
 
                 request.Content = new FormUrlEncodedContent(parametros);
@@ -42,29 +42,18 @@ namespace BlogNotas_Cliente.model.api
 
                     if (response != null)
                     {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            resultado.Estado = false;
-                            resultado.Mensaje = "Registro exitoso";
-                        }
-                        else
-                        {
-                            resultado.Estado = true;
-                            resultado.Mensaje = "Error en la solicitud: " + response.StatusCode;
-                        }
+                        resultado = await response.Content.ReadFromJsonAsync<RespuestaGenerica>();
                     }
-                    Console.WriteLine("Código de estado: " + resultado.Estado);
-                    Console.WriteLine("Mensaje: " + resultado.Mensaje);
                 }
                 catch (HttpRequestException ex)
                 {
-                    resultado.Estado = true;
-                    resultado.Mensaje = "Error en la solicitud: " + ex.Message;
+                    resultado.error = true;
+                    resultado.mensaje = "No se pudo conectar con el servidor";
                 }
                 catch (Exception ex)
                 {
-                    resultado.Estado = true;
-                    resultado.Mensaje = "Error en la solicitud: " + ex.Message;
+                    resultado.error = true;
+                    resultado.mensaje = "No se pudo conectar con el servidor";
                 }
             }
             return resultado;
@@ -88,33 +77,24 @@ namespace BlogNotas_Cliente.model.api
                 };
 
                 request.Content = new FormUrlEncodedContent(parametros);
-
                 try
                 {
                     HttpResponseMessage response = await client.SendAsync(request);
 
                     if (response != null)
                     {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            resultado = await response.Content.ReadFromJsonAsync<RespuestaAcceso>();
-                        }
-                        else
-                        {
-                            resultado.error = true;
-                            resultado.mensaje = "Error en la solicitud: " + response.StatusCode;
-                        }
+                        resultado = await response.Content.ReadFromJsonAsync<RespuestaAcceso>();
                     }
                 }
                 catch (HttpRequestException ex)
                 {
                     resultado.error = true;
-                    resultado.mensaje = "Error en la solicitud: " + ex.Message;
+                    resultado.mensaje = "No se pudo conectar con el servidor";
                 }
                 catch (Exception ex)
                 {
                     resultado.error = true;
-                    resultado.mensaje = "Error en la solicitud: " + ex.Message;
+                    resultado.mensaje = "No se pudo conectar con el servidor";
                 }
             }
             return resultado;
@@ -146,31 +126,20 @@ namespace BlogNotas_Cliente.model.api
 
                     if (response != null)
                     {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            resultado.Estado = false;
-                            resultado.Mensaje = await response.Content.ReadAsStringAsync();
-                        }
-                        else
-                        {
-                            resultado.Estado = true;
-                            resultado.Mensaje = "Error en la solicitud: " + response.StatusCode;
-                        }
+                        resultado = await response.Content.ReadFromJsonAsync<RespuestaGenerica>();
                     }
-
-                    Console.WriteLine("Código de estado: " + resultado.Estado);
-                    Console.WriteLine("Mensaje: " + resultado.Mensaje);
                 }
                 catch (HttpRequestException ex)
                 {
-                    Console.WriteLine("Error en la solicitud HTTP: " + ex.Message);
+                    resultado.error = false;
+                    resultado.mensaje = "No se pudo conectar con el servidor";
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error general: " + ex.Message);
+                    resultado.error = false;
+                    resultado.mensaje = "No se pudo conectar con el servidor";
                 }
             }
-
             return resultado;
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlogNotas_Cliente"
         mc:Ignorable="d"
-        Title="Login" Height="298" Width="539" Background="#34495E">
+        Title="Inicio de sesion" Height="310" Width="539" Background="#34495E" ResizeMode="NoResize" Icon="/BlogLogo.png" WindowStartupLocation="CenterScreen" >
     <TabControl Background="#2C3E50">
         <TabItem x:Name="TabIniciar" Header="Iniciar sesion" Background="#154360" Selector.IsSelected="True" Margin="-2,-2,-25,0" >
             <Grid Background="#154360">
@@ -52,13 +52,13 @@
                     </TextBox.Background>
                 </TextBox>
                 <Button x:Name="bt_Registrarse" Content="Registrarse" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Click="Registrar" Width="100" Height="25" Background="#FF154360" Foreground="White"/>
-                <Label x:Name="lbl_Codigo" Content="Codigo de verificacion:" Margin="43,179,0,0" FontFamily="Yu Gothic UI Light" Foreground="White" FontSize="14" HorizontalAlignment="Left" Width="150" Height="31" VerticalAlignment="Top" />
-                <PasswordBox x:Name="tb_Codigo" HorizontalAlignment="Left" Margin="193,182,0,0" VerticalAlignment="Top" Width="87" Height="25" FontFamily="Yu Gothic UI Light" BorderBrush="Black" FontSize="14" Foreground="White">
+                <Label x:Name="lbl_Codigo" Content="Codigo de verificacion:" Margin="43,0,0,44" FontFamily="Yu Gothic UI Light" Foreground="White" FontSize="14" HorizontalAlignment="Left" Width="150" Height="31" VerticalAlignment="Bottom" />
+                <PasswordBox x:Name="tb_Codigo" HorizontalAlignment="Left" Margin="193,0,0,47" Width="87" FontFamily="Yu Gothic UI Light" BorderBrush="Black" FontSize="14" Foreground="White" PreviewTextInput="ValidarNumeros" Height="25" VerticalAlignment="Bottom">
                     <PasswordBox.Background>
                         <SolidColorBrush Color="#FF848484" Opacity="0.5"/>
                     </PasswordBox.Background>
                 </PasswordBox>
-                <Button x:Name="bt_Confirmar" Content="Confirmar" HorizontalAlignment="Left" Margin="306,182,0,0" VerticalAlignment="Top" Click="Registrar" Width="82" Height="25" Background="#FF154360" Foreground="White"/>
+                <Button x:Name="bt_Confirmar" Content="Confirmar" HorizontalAlignment="Left" Margin="306,0,0,47" Click="Activar" Width="82" Background="#FF154360" Foreground="White" Height="25" VerticalAlignment="Bottom"/>
 
             </Grid>
         </TabItem>
