@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Security.Policy;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BlogNotas_Cliente.model.api
@@ -82,7 +84,7 @@ namespace BlogNotas_Cliente.model.api
                 var parametros = new Dictionary<string, string>
                 {
                     { "celular", celular },
-                    { "contraseña", contrasena }
+                    { "contrasena", contrasena }
                 };
 
                 request.Content = new FormUrlEncodedContent(parametros);
@@ -95,33 +97,24 @@ namespace BlogNotas_Cliente.model.api
                     {
                         if (response.IsSuccessStatusCode)
                         {
-                            var jsonResponse = await response.Content.ReadAsStringAsync();
-                            var respuestaApi = JsonSerializer.Deserialize<RespuestaAcceso>(jsonResponse);
-
-                            resultado.Estado = respuestaApi.Estado;
-                            resultado.Mensaje = respuestaApi.Mensaje;
-                            resultado.SesionToken = respuestaApi.SesionToken;
-                            resultado.UsuarioActual = respuestaApi.UsuarioActual;
+                            resultado = await response.Content.ReadFromJsonAsync<RespuestaAcceso>();
                         }
                         else
                         {
-                            resultado.Estado = true;
-                            resultado.Mensaje = "Error en la solicitud: " + response.StatusCode;
+                            resultado.error = true;
+                            resultado.mensaje = "Error en la solicitud: " + response.StatusCode;
                         }
                     }
-
-                    Console.WriteLine("Código de estado: " + resultado.Estado);
-                    Console.WriteLine("Mensaje: " + resultado.Mensaje);
                 }
                 catch (HttpRequestException ex)
                 {
-                    resultado.Estado = true;
-                    resultado.Mensaje = "Error en la solicitud: " + ex.Message;
+                    resultado.error = true;
+                    resultado.mensaje = "Error en la solicitud: " + ex.Message;
                 }
                 catch (Exception ex)
                 {
-                    resultado.Estado = true;
-                    resultado.Mensaje = "Error en la solicitud: " + ex.Message;
+                    resultado.error = true;
+                    resultado.mensaje = "Error en la solicitud: " + ex.Message;
                 }
             }
             return resultado;

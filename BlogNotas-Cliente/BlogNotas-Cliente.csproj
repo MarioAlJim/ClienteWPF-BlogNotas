@@ -9,8 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="model\api\" />
+    <None Remove="BlogLogo.png" />
+    <None Remove="Candado.png" />
+    <None Remove="Usuario.png" />
+    <None Remove="Uusuario.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="model\objetos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BlogLogo.png" />
+    <Resource Include="Candado.png" />
+    <Resource Include="Usuario.png" />
+    <Resource Include="Uusuario.png" />
   </ItemGroup>
 
 </Project>

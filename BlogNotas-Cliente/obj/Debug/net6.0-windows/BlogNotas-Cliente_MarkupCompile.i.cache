@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\acarm\Documents\ProyectosWPF\BlogNotas-Cliente\BlogNotas-Cliente\App.xaml
-11407045341
+2-320089488
 
-141198964114
+16-14948372
 1941709816142
-MainWindow.xaml;
+MainWindow.xaml;MenuPrincipal.xaml;
 
-True
+False
 

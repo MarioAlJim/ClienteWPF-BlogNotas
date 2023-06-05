@@ -17,9 +17,9 @@
                 <TextBox x:Name="tb_Usuario" HorizontalAlignment="Left" Margin="82,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="26" PreviewTextInput="ValidarNumeros"/>
                 <PasswordBox x:Name="tb_Contrasenia" HorizontalAlignment="Left" Margin="82,126,0,0" VerticalAlignment="Top" Width="184" Height="28"/>
 
-                <Image Margin="309,36,0,0" VerticalAlignment="Top" Height="162" Source="/Sources/BlogLogo.png" HorizontalAlignment="Left" Width="165"/>
-                <Image HorizontalAlignment="Left" Height="26" Margin="43,78,0,0" VerticalAlignment="Top" Width="26" Opacity="0.7" Source="/Sources/Uusuario.png"/>
-                <Image HorizontalAlignment="Left" Height="26" Margin="43,128,0,0" VerticalAlignment="Top" Width="26" Opacity="0.7" Source="/Sources/Candado.png"/>
+                <Image Margin="309,36,0,0" VerticalAlignment="Top" Height="162" Source="/BlogLogo.png" HorizontalAlignment="Left" Width="165" IsEnabled="False"/>
+                <Image HorizontalAlignment="Left" Height="26" Margin="43,78,0,0" VerticalAlignment="Top" Width="26" Opacity="0.7" Source="/Usuario.png" IsEnabled="False"/>
+                <Image HorizontalAlignment="Left" Height="26" Margin="43,128,0,0" VerticalAlignment="Top" Width="26" Opacity="0.7" Source="/Candado.png" IsEnabled="False"/>
             </Grid>
         </TabItem>
         <TabItem x:Name="TabRegistrar" Header="Registro" Margin="25,-2,-80,0" Background="#0E6655">

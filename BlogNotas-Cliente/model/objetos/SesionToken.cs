@@ -8,8 +8,8 @@ namespace BlogNotas_Cliente.model.objetos
 {
     public class SesionToken
     {
-        public String nombres { get; set; }
-        public String celular { get; set; }
-        public String tokenacceso { get; set; }
+        public string celular { get; set; }
+        public string nombres { get; set; }
+        public string tokenacceso { get; set; }
     }
 }

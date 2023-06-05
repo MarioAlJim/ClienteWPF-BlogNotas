@@ -37,7 +37,17 @@ namespace BlogNotas_Cliente
                 String celular = tb_Usuario.Text.Trim();
                 String contrasena = tb_Contrasenia.Password.Trim();
                 RespuestaAcceso respuestaAcceso = await ServicioAcceso.IniciarSesion(celular, contrasena);
-
+                if (!respuestaAcceso.error)
+                {
+                    MessageBox.Show(("Bienvenido: " + respuestaAcceso.usuario.nombres), "Bienvenido", MessageBoxButton.OK);
+                    MenuPrincipal mainMenu = new MenuPrincipal();
+                    mainMenu.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el usuario");
+                }
             }
             else
             {

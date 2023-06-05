@@ -9,9 +9,9 @@ namespace BlogNotas_Cliente.model.api
 {
     public class RespuestaAcceso
     {
-        public bool Estado { get; set; }
-        public string Mensaje { get; set; }
-        public Usuario UsuarioActual { get; set; }
-        public SesionToken SesionToken { get; set; }
+        public bool error { get; set; }
+        public string mensaje { get; set; }
+        public SesionToken sesionToken { get; set; }
+        public Usuario usuario { get; set; }
     }
 }
