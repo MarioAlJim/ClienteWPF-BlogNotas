@@ -8,29 +8,25 @@ using System.Threading.Tasks;
 
 namespace BlogNotas_Cliente.Utileria
 {
-    public static class UsuarioActivo
+    public class UsuarioActivo
     {
-        public static Usuario? Usuario;
-        public static SesionToken? SesionToken;
+        private static UsuarioActivo instancia;
+        public Usuario Usuario { get; set; }
+        public String SesionToken { get; set; }
 
-        public static Usuario getUsuarioActivo()
+        private UsuarioActivo()
         {
-            return Usuario;
+            Usuario = new Usuario();
+            SesionToken = "";
         }
 
-        public static void setUsuarioActivo (Usuario usuario)
+        public static UsuarioActivo ObtenerUsuarioActivo()
         {
-            Usuario = usuario;
-        }
-
-        public static void setToken (SesionToken sesiontoken)
-        {
-            SesionToken = sesiontoken;
-        }
-
-        public static SesionToken getSesionToken()
-        {
-            return SesionToken;
+            if (instancia == null)
+            {
+                instancia = new UsuarioActivo();
+            }
+            return instancia;
         }
     }
 }

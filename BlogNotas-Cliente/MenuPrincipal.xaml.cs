@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlogNotas_Cliente.model.api;
+using BlogNotas_Cliente.model.objetos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +16,33 @@ using System.Windows.Shapes;
 
 namespace BlogNotas_Cliente
 {
-    /// <summary>
-    /// Lógica de interacción para MenuPrincipál.xaml
-    /// </summary>
     public partial class MenuPrincipal : Window
     {
         public MenuPrincipal()
         {
             InitializeComponent();
+            CargarPrioridades();
+        }
+
+        private async void CargarPrioridades()
+        {
+            RespuestaPrioridades respuestaPrioridades = await ServicioPrioridades.ConsultarPrioridades();
+            if (!respuestaPrioridades.error)
+            {
+                Prioridad prioridad = new Prioridad();
+                prioridad.prioridad_id = 2;
+                prioridad.nombre = "Todas";
+                cb_Prioridad.DisplayMemberPath = "nombre";
+                cb_Prioridad.Items.Add(prioridad);
+                foreach (Prioridad priori in respuestaPrioridades.Prioridades)
+                {
+                    cb_Prioridad.Items.Add(priori);
+                }
+                
+            } else
+            {
+                MessageBox.Show(respuestaPrioridades.mensaje);
+            }
         }
 
         private void CrearLibreta(object sender, RoutedEventArgs e)

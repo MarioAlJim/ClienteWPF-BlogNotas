@@ -43,9 +43,9 @@ namespace BlogNotas_Cliente
                 if (!respuestaAcceso.error)
                 {
                     MessageBox.Show(("Bienvenido: " + respuestaAcceso.usuario.nombres), "Bienvenido", MessageBoxButton.OK);
+                    UsuarioActivo.ObtenerUsuarioActivo().SesionToken = respuestaAcceso.sesionToken.tokenacceso;
+                    UsuarioActivo.ObtenerUsuarioActivo().Usuario = respuestaAcceso.usuario;
                     MenuPrincipal mainMenu = new MenuPrincipal();
-                    UsuarioActivo.setToken(respuestaAcceso.sesionToken);
-                    UsuarioActivo.setUsuarioActivo(respuestaAcceso.usuario);
                     mainMenu.Show();
                     this.Close();
                 }
