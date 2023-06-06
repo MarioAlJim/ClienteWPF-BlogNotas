@@ -23,5 +23,35 @@ namespace BlogNotas_Cliente
         {
             InitializeComponent();
         }
+
+        private void CrearLibreta(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModificarLibreta(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EliminarLibreta(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CrearNota(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModificarNota(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EliminarNota(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

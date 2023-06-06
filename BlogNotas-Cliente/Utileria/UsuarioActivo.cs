@@ -11,6 +11,7 @@ namespace BlogNotas_Cliente.Utileria
     public static class UsuarioActivo
     {
         public static Usuario? Usuario;
+        public static SesionToken? SesionToken;
 
         public static Usuario getUsuarioActivo()
         {
@@ -20,6 +21,16 @@ namespace BlogNotas_Cliente.Utileria
         public static void setUsuarioActivo (Usuario usuario)
         {
             Usuario = usuario;
+        }
+
+        public static void setToken (SesionToken sesiontoken)
+        {
+            SesionToken = sesiontoken;
+        }
+
+        public static SesionToken getSesionToken()
+        {
+            return SesionToken;
         }
     }
 }

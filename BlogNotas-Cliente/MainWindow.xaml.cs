@@ -1,5 +1,6 @@
 ﻿using BlogNotas_Cliente.model.api;
 using BlogNotas_Cliente.model.objetos;
+using BlogNotas_Cliente.Utileria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,8 @@ namespace BlogNotas_Cliente
                 {
                     MessageBox.Show(("Bienvenido: " + respuestaAcceso.usuario.nombres), "Bienvenido", MessageBoxButton.OK);
                     MenuPrincipal mainMenu = new MenuPrincipal();
+                    UsuarioActivo.setToken(respuestaAcceso.sesionToken);
+                    UsuarioActivo.setUsuarioActivo(respuestaAcceso.usuario);
                     mainMenu.Show();
                     this.Close();
                 }

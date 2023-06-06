@@ -9,10 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Sources\**" />
+    <EmbeddedResource Remove="Sources\**" />
+    <None Remove="Sources\**" />
+    <Page Remove="Sources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="BlogLogo.png" />
     <None Remove="Candado.png" />
+    <None Remove="Crear.png" />
+    <None Remove="CrearNota.png" />
+    <None Remove="Eliminar.png" />
+    <None Remove="EliminarNota.png" />
+    <None Remove="LibretaFondo.png" />
+    <None Remove="Modificar.png" />
+    <None Remove="ModificarNota.png" />
+    <None Remove="NotaFondo.png" />
     <None Remove="Usuario.png" />
-    <None Remove="Uusuario.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,8 +36,15 @@
   <ItemGroup>
     <Resource Include="BlogLogo.png" />
     <Resource Include="Candado.png" />
+    <Resource Include="Crear.png" />
+    <Resource Include="CrearNota.png" />
+    <Resource Include="Eliminar.png" />
+    <Resource Include="EliminarNota.png" />
+    <Resource Include="LibretaFondo.png" />
+    <Resource Include="Modificar.png" />
+    <Resource Include="ModificarNota.png" />
+    <Resource Include="NotaFondo.png" />
     <Resource Include="Usuario.png" />
-    <Resource Include="Uusuario.png" />
   </ItemGroup>
 
 </Project>
