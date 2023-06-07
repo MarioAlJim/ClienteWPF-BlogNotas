@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlogNotas_Cliente"
         mc:Ignorable="d"
-        Title="Menu Principál" Height="627" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Menu Principál" Height="627" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/BlogLogo.png">
     <Grid Background="#34495E">
         <Grid.RowDefinitions>
             <RowDefinition Height="75*"/>
@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Image Margin="20,85,20,50" Grid.Row="1" Source="/LibretaFondo.png" Stretch="Fill"/>
         <Label Content="Libretas registradas" Margin="15,15,15,0" VerticalAlignment="Top" Height="34" FontFamily="Yu Gothic UI Light" FontSize="16" Foreground="White" Grid.Row="1" HorizontalContentAlignment="Center" Background="#4CCCCCCC" VerticalContentAlignment="Center"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="25,65,25,38" Foreground="White" Background="#66252525" FontFamily="Yu Gothic UI Light" FontSize="16" Grid.Row="1"/>
+        <ListBox x:Name="lb_Libretas" DisplayMemberPath="nombre" Margin="25,65,25,38" Foreground="White" Background="#66252525" FontFamily="Yu Gothic UI Light" FontSize="16" Grid.Row="1" SelectionChanged="MostrarNotas"/>
         <Button x:Name="bt_CrearLibreta" HorizontalAlignment="Left" Margin="52,0,0,0" VerticalAlignment="Center" Width="50" Height="50" Click="CrearLibreta">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Crear.png" Width="40" Height="40" />
@@ -56,10 +56,10 @@
             </StackPanel>
         </Button>
 
-        <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="25,65,25,38" Grid.Row="1" Foreground="White" Background="#66252525" FontSize="16" FontFamily="Yu Gothic UI Light"/>
-        <TextBlock x:Name="tb_Contenido" Grid.Column="2" Margin="25,65,25,38" Grid.Row="1" Text="TextBlock" Background="#66252525" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="16" TextAlignment="Justify" TextWrapping="Wrap"/>
+        <ListBox x:Name="lb_Notas" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="25,65,25,38" Grid.Row="1" Foreground="White" Background="#66252525" FontSize="16" FontFamily="Yu Gothic UI Light" SelectionChanged="MostrarContenidoNotas"/>
+        <TextBlock x:Name="tb_Contenido" Grid.Column="2" Margin="25,65,25,38" Grid.Row="1" Background="#66252525" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="16" TextAlignment="Justify" TextWrapping="Wrap"><Run/><LineBreak/><Run/></TextBlock>
         <Label Content="Contenido" Margin="10,15,10,0" VerticalAlignment="Top" Height="34" FontFamily="Yu Gothic UI Light" FontSize="16" Foreground="White" Grid.Row="1" HorizontalContentAlignment="Center" Background="#4CCCCCCC" VerticalContentAlignment="Center" Grid.Column="2"/>
-        <ComboBox x:Name="cb_Prioridad" Grid.Column="1" Margin="10,15,10,0" Grid.Row="1" VerticalAlignment="Top" Height="34" BorderBrush="#00ACACAC" FontSize="16">
+        <ComboBox x:Name="cb_Prioridad" Grid.Column="1" Margin="10,15,10,0" Grid.Row="1" VerticalAlignment="Top" Height="34" BorderBrush="#00ACACAC" FontSize="16" SelectionChanged="MostrarNotasPrioridad">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -67,6 +67,11 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
+        <Button VerticalAlignment="Center" Height="50" Margin="258,0,0,0" Click="Salir" Grid.Column="2" HorizontalAlignment="Left" Width="50" Background="#FFB34B4B">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/LogOut.png" Width="40" Height="40" />
+            </StackPanel>
+        </Button>
 
 
     </Grid>

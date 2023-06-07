@@ -23,6 +23,8 @@
     <None Remove="Eliminar.png" />
     <None Remove="EliminarNota.png" />
     <None Remove="LibretaFondo.png" />
+    <None Remove="Login.png" />
+    <None Remove="LogOut.png" />
     <None Remove="Modificar.png" />
     <None Remove="ModificarNota.png" />
     <None Remove="NotaFondo.png" />
@@ -41,6 +43,12 @@
     <Resource Include="Eliminar.png" />
     <Resource Include="EliminarNota.png" />
     <Resource Include="LibretaFondo.png" />
+    <Resource Include="Login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="LogOut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Modificar.png" />
     <Resource Include="ModificarNota.png" />
     <Resource Include="NotaFondo.png" />

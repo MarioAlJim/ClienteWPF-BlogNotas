@@ -12,7 +12,12 @@
                 <Rectangle  Fill="White" Opacity="0.1" Margin="10,10,10,10"/>
 
                 <Label x:Name="lbl_InicioSesion" Content="Inicio de sesion" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic Light" FontSize="24" Foreground="White"/>
-                <Button x:Name="bt_inicioSesion" Content="Ingresar" HorizontalAlignment="Left" Margin="146,172,0,0" RenderTransformOrigin="-0.236,1.627" Width="120" Click="IniciarSesion" Height="26" VerticalAlignment="Top" Background="#FF28B463" Foreground="Black" FontFamily="Yu Gothic UI Light" FontSize="14"/>
+                <Button x:Name="bt_inicioSesion" HorizontalAlignment="Left" Margin="146,172,0,0" RenderTransformOrigin="-0.236,1.627" Width="120" Click="IniciarSesion" Height="26" VerticalAlignment="Top" Background="#FF23A011" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="14">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Login.png" Width="20" Height="20" Margin="0,0,5,0" />
+                        <TextBlock Text="Ingresar" />
+                    </StackPanel>
+                </Button>
 
                 <TextBox x:Name="tb_Usuario" HorizontalAlignment="Left" Margin="82,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="26" PreviewTextInput="ValidarNumeros"/>
                 <PasswordBox x:Name="tb_Contrasenia" HorizontalAlignment="Left" Margin="82,126,0,0" VerticalAlignment="Top" Width="184" Height="28"/>

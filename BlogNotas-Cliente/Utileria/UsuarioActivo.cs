@@ -10,7 +10,7 @@ namespace BlogNotas_Cliente.Utileria
 {
     public class UsuarioActivo
     {
-        private static UsuarioActivo instancia;
+        private static UsuarioActivo? instancia;
         public Usuario Usuario { get; set; }
         public String SesionToken { get; set; }
 
@@ -24,7 +24,7 @@ namespace BlogNotas_Cliente.Utileria
         {
             if (instancia == null)
             {
-                instancia = new UsuarioActivo();
+                instancia = new();
             }
             return instancia;
         }
